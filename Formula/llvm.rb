@@ -110,12 +110,6 @@ class Llvm < Formula
     }]
   end
 
-  # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
-
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
